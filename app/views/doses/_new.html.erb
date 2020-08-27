@@ -1,9 +1,11 @@
-<h2>Create a dose</h2>
+<div class='container'>
+  <h2>Create a dose</h2>
+</div>
 
 
 <div class="container">
   <%= simple_form_for([@cocktail, @dose]) do |f| %>
-      <%= f.association :ingredient %>
+      <%= f.association :ingredient, collection: Ingredient.order(:name), prompt: "Choose an Ingredient" %>
       <%= f.input :description %>
       <%= f.submit "add an ingredient", class: "btn btn-primary"%>
   <% end %>
